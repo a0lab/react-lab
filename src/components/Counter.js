@@ -13,7 +13,9 @@ class Counter extends Component {
         this.setState((prevState)=>({
             count: prevState.count + 1
 
-        }))
+        }),() => {
+          console.log('Call back value ', this.state.count)
+        })
     }
 
     fiveIncrement() {
@@ -25,9 +27,10 @@ class Counter extends Component {
     }
 
   render() {
+    const {count} = this.state;
     return (
         <div>
-            <div>Counter - {this.state.count}</div>
+            <div>Counter - {this.state.count} - {count}</div>
             <button onClick={() => this.fiveIncrement()}>Increment</button>
         </div>
       
